@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="HOME" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_add_black_24dp"
+            android:title="Ajouter" />
+    </group>
+
+    <item android:title="Trier par">
+        <menu>
+            <item
+                android:id="@+id/tri_nom"
+                android:icon="@drawable/ic_menu_send"
+                android:title="nom" />
+            <item
+                android:id="@+id/tri_type"
+                android:icon="@drawable/ic_menu_send"
+                android:title="type" />
+
+            <item
+                android:id="@+id/tri_wilaya"
+                android:icon="@drawable/ic_menu_send"
+                android:title="wilaya" />
+            <item
+                android:id="@+id/tri_date_depot"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Date depot" />
+
+        </menu>
+    </item>
+
+    <item android:title="Recherche par">
+        <menu>
+            <item
+                android:id="@+id/rech_nom"
+                android:icon="@drawable/ic_menu_send"
+                android:title="nom" />
+            <item
+                android:id="@+id/rech_type"
+                android:icon="@drawable/ic_menu_send"
+                android:title="type" />
+
+            <item
+                android:id="@+id/rech_wilaya"
+                android:icon="@drawable/ic_menu_send"
+                android:title="wilaya" />
+
+        </menu>
+    </item>
+
+</menu>
