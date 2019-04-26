@@ -52,14 +52,6 @@ class AnnonceDetaille : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         var itemView = inflater.inflate(R.layout.fragment_annonce_detaille, container, false)
-   /*     val ft = supportFragmentManager.beginTransaction()
-        itemView.btn_show_images.setOnClickListener{view ->
-
-            ft.replace(R.id.fragment,f2)
-            ft.addToBackStack(null)
-            ft.commit()
-            Toast.makeText(context,"tri ok ", Toast.LENGTH_SHORT).show()
-        } */
         val annonce = Annonces.findAnnonceByTitre(arguments!!.getString("nom"))
 
         annonce_wilaya = itemView.findViewById(R.id.wilaya) as TextView

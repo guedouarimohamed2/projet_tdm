@@ -52,87 +52,75 @@ object Annonces {
     val KEY_ENABLE_HOME = "position"
     var type_recherche = 1
     fun initial(){
- /*     tests.add(a1);tests.add(a2);tests.add(a3);tests.add(a4);tests.add(a5);tests.add(a6);tests.add(a7);
-        tests.add(a8);tests.add(a9);tests.add(a10);tests.add(a11);tests.add(a12);tests.add(a13);tests.add(a14);tests.add(a15)
-*/
-        /*   a1.images?.add(R.drawable.balloons.toString().toInt())
-           a1.images?.add(R.drawable.aa.toString().toInt())
-           a1.images?.add(R.drawable.bb.toString().toInt())
-           a1.images?.add(R.drawable.cc.toString().toInt())
-           a1.images?.add(R.drawable.dd.toString().toInt())
 
 
-           a2.images?.add(R.drawable.aa.toString().toInt())
-           a2.images?.add(R.drawable.bb.toString().toInt())
-           a2.images?.add(R.drawable.cc.toString().toInt())
-           */
-        a1.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/balloons"))
-        a1.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a1.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a1.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/cc"))
-        a1.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/dd"))
+        a1.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img1"))
+        a1.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img6"))
+        a1.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img7"))
+        a1.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img4"))
+        a1.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img5"))
 
 
-        a2.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a2.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a2.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/cc"))
+        a2.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img6"))
+        a2.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img7"))
+        a2.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img8"))
 
-        a3.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/balloons"))
-        a3.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a3.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/cc"))
+        a3.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img9"))
+        a3.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img10"))
+        a3.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img11"))
 
-        a4.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a4.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a4.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/balloons"))
-
-
-        a5.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a5.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a5.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/cc"))
-        a5.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/balloons"))
+        a4.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img12"))
+        a4.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img13"))
+        a4.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img14"))
 
 
-        a6.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a6.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/balloons"))
-        a6.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a6.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a6.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/dd"))
+        a5.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img10"))
+        a5.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img16"))
+        a5.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img17"))
+        a5.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img8"))
 
 
-        a7.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a7.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
+        a6.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img12"))
+        a6.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img13"))
+        a6.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img1"))
+        a6.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img18"))
+        a6.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img14"))
 
-        a8.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a8.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
 
-        a9.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a9.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a9.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/cc"))
+        a7.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img4"))
+        a7.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img5"))
 
-        a10.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a10.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
+        a8.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img6"))
+        a8.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img7"))
 
-        a11.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a11.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a11.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/cc"))
-        a11.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/dd"))
-        a11.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/balloons"))
+        a9.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img8"))
+        a9.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img9"))
+        a9.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img10"))
 
-        a12.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a12.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a12.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/cc"))
+        a10.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img11"))
+        a10.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img12"))
 
-        a13.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a13.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a13.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/cc"))
+        a11.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img13"))
+        a11.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img14"))
+        a11.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img12"))
+        a11.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img16"))
+        a11.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img10"))
 
-        a14.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a14.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a14.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/cc"))
+        a12.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img18"))
+        a12.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img19"))
+        a12.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img20"))
 
-        a15.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/aa"))
-        a15.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/bb"))
-        a15.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/cc"))
+        a13.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img1"))
+        a13.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img10"))
+        a13.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img12"))
+
+        a14.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img4"))
+        a14.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img5"))
+        a14.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img6"))
+
+        a15.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img7"))
+        a15.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img8"))
+        a15.images?.add(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://com.a0.projet0_5.master.projet/drawable/img9"))
 
 
 

@@ -50,7 +50,6 @@ class ListAnnonce : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-       // btn_tri = view!!.findViewById(R.id.btn_tri_titre)
 
         // Inflate the layout for this fragment
         val itemView = inflater.inflate(R.layout.fragment_list_annonce, container, false)

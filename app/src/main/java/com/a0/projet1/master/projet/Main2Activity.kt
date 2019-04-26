@@ -243,9 +243,7 @@ private val showDetail = object : BroadcastReceiver(){
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
-        //    image_view.setImageURI(data?.data)
             images!!.add(data?.data!!)
-            Toast.makeText(this,data?.data.toString(),Toast.LENGTH_SHORT).show()
 
         }
     }
@@ -270,23 +268,5 @@ private val showDetail = object : BroadcastReceiver(){
         wilaya.setText("")
 
     }
-
- /*   override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when(item!!.itemId)
-        {
-            android.R.id.home -> {
-                //    toolbar.title = "POKEMON LIST"
-
-                //Clear all fragment in stack with name 'detail'
-                supportFragmentManager.popBackStack("detail", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-
-                supportActionBar!!.setDisplayShowHomeEnabled(false)
-                supportActionBar!!.setDisplayHomeAsUpEnabled(false)
-
-            }
-        }
-        return true
-    }*/
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
