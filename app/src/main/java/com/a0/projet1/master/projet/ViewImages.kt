@@ -63,7 +63,9 @@ class ViewImages : Fragment() {
             for(key in a.images!!)
             {
                 if(arguments!!.getInt(ARG_SECTION_NUMBER)==i){
-                    rootView.imafe_iv.setImageResource(a.images!![i-1])
+                  //  rootView.imafe_iv.setImageResource(a.images!![i-1])
+                    rootView.imafe_iv.setImageURI(a.images!![i-1])
+
                 }
                 i++
             }

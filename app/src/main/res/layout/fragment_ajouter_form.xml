@@ -115,6 +115,19 @@
             android:padding="10dp"
             android:background="@drawable/card_design"
             android:inputType="textPersonName" />
+
+        <!--   android:onClick="choisir_image"
+           tools:ignore="OnClick" -->
+
+        <Button
+
+            android:id="@+id/input_image"
+            android:text="choisir image"
+            android:onClick="choisir_image"
+            tools:ignore="OnClick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/btn_ajouter"
             android:layout_marginTop="20dp"

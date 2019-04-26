@@ -1,11 +1,15 @@
 package com.a0.projet1.master.projet
 
+import android.app.Activity
 import android.app.FragmentManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.provider.MediaStore
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.content.LocalBroadcastManager
@@ -16,7 +20,9 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import com.a0.projet1.master.projet.Model.Annonce
 import com.a0.projet1.master.projet.Model.Annonces
@@ -24,6 +30,8 @@ import com.a0.projet1.master.projet.adapter.AnnonceListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.app_bar_main2.*
+import kotlinx.android.synthetic.main.fragment_ajouter_form.*
+import java.util.ArrayList
 
 class Main2Activity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,16 +55,24 @@ private val showDetail = object : BroadcastReceiver(){
         }
     }
 }
-    val manager = supportFragmentManager
 
+
+
+
+    val manager = supportFragmentManager
+    var images: MutableList<Uri>? = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
+
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
             loadFrag2(AjouterForm())
+            images!!.clear()
         }
+
         //////////////////////////////////////////////////////////////
         toolbar.setTitle("ANNONCES")
         setSupportActionBar(toolbar)
@@ -107,6 +123,7 @@ private val showDetail = object : BroadcastReceiver(){
             }
             R.id.nav_gallery -> {
                 loadFrag2(AjouterForm())
+                images!!.clear()
             }
             R.id.tri_nom -> {
                 var sortedList = Annonces.ans.sortedWith(compareBy({ it.nom }))
@@ -188,6 +205,7 @@ private val showDetail = object : BroadcastReceiver(){
 
     fun show_ajouter_form(view : View){
         loadFrag2(AjouterForm())
+        images!!.clear()
     }
 
     private fun loadFrag1(f1:ListAnnonce){
@@ -214,6 +232,26 @@ private val showDetail = object : BroadcastReceiver(){
         ft.addToBackStack(null)
         ft.commit()
     }
+    fun choisir_image(view: View){
+        pickimage()
+    }
+    private fun pickimage(){
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)//,MediaStore.Images.Media.INTERNAL_CONTENT_URI
+        //  intent.type = "image/*"
+        startActivityForResult(intent,IMAGE_PICK_CODE)
+
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
+        //    image_view.setImageURI(data?.data)
+            images!!.add(data?.data!!)
+            Toast.makeText(this,data?.data.toString(),Toast.LENGTH_SHORT).show()
+
+        }
+    }
+    companion object {
+        private val IMAGE_PICK_CODE = 1000
+    }
     fun ajouter(view: View){
         val nom: EditText =findViewById(R.id.input_nom)
         val type: EditText =findViewById(R.id.input_type)
@@ -224,7 +262,7 @@ private val showDetail = object : BroadcastReceiver(){
 
         val t =  System.currentTimeMillis();
         Log.i("TAG", "SERIAL: " + t);
-        var a1 = Annonce(nom.text.toString(),type.text.toString(),wilaya.text.toString(),description.text.toString(),telephone.text.toString(),email.text.toString(),t)
+        var a1 = Annonce(nom.text.toString(),type.text.toString(),wilaya.text.toString(),description.text.toString(),telephone.text.toString(),email.text.toString(),t,images)
         Annonces.ans.add(a1)
         loadFrag1(ll!!)
         nom.setText("")
@@ -250,4 +288,5 @@ private val showDetail = object : BroadcastReceiver(){
         return true
     }*/
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
