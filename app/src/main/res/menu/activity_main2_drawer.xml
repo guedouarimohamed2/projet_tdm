@@ -14,44 +14,44 @@
             android:title="Ajouter" />
     </group>
 
-    <item android:title="Trier par">
+    <item android:title="Trier">
         <menu>
             <item
                 android:id="@+id/tri_nom"
                 android:icon="@drawable/ic_menu_send"
-                android:title="nom" />
+                android:title="Par Nom" />
             <item
                 android:id="@+id/tri_type"
                 android:icon="@drawable/ic_menu_send"
-                android:title="type" />
+                android:title="Par Type" />
 
             <item
                 android:id="@+id/tri_wilaya"
                 android:icon="@drawable/ic_menu_send"
-                android:title="wilaya" />
+                android:title="Par Wilaya" />
             <item
                 android:id="@+id/tri_date_depot"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Date depot" />
+                android:title="Par Date depot" />
 
         </menu>
     </item>
 
-    <item android:title="Recherche par">
+    <item android:title="Rechercher">
         <menu>
             <item
                 android:id="@+id/rech_nom"
                 android:icon="@drawable/ic_menu_send"
-                android:title="nom" />
+                android:title="Par Nom" />
             <item
                 android:id="@+id/rech_type"
                 android:icon="@drawable/ic_menu_send"
-                android:title="type" />
+                android:title="Par Type" />
 
             <item
                 android:id="@+id/rech_wilaya"
                 android:icon="@drawable/ic_menu_send"
-                android:title="wilaya" />
+                android:title="Par Wilaya" />
 
         </menu>
     </item>

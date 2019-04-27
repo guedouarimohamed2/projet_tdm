@@ -26,41 +26,46 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Nom : "
                     android:textColor="@color/black"
-                    android:text="nom : "/>
+                    android:textSize="20sp" />
+
                 <TextView
                     android:id="@+id/nom"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <TextView
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="type : "/>
+                    android:fontFamily="sans-serif-light"
+                    android:text="Type : "
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/type"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
             </LinearLayout>
 
 
@@ -68,21 +73,23 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <TextView
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="wilaya"/>
+                    android:fontFamily="sans-serif-light"
+                    android:text="Wilaya :"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/wilaya"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
             </LinearLayout>
 
 

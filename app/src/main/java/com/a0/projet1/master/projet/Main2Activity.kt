@@ -74,7 +74,7 @@ private val showDetail = object : BroadcastReceiver(){
         }
 
         //////////////////////////////////////////////////////////////
-        toolbar.setTitle("ANNONCES")
+        toolbar.setTitle("Annonces Immobilières")
         setSupportActionBar(toolbar)
         loadFrag1(ll!!)
         Annonces.initial()
@@ -169,7 +169,7 @@ private val showDetail = object : BroadcastReceiver(){
 
                 ll!!.search_bar.visibility = View.VISIBLE
                 ll!!.search_bar.lastSuggestions = ll!!.last_suggest
-                ll!!.search_bar.setHint("Entrer le nom")
+                ll!!.search_bar.setHint("Entrer Nom")
             }
             R.id.rech_type ->{
                 Annonces.type_recherche=2
@@ -179,7 +179,7 @@ private val showDetail = object : BroadcastReceiver(){
 
                 ll!!.search_bar.visibility = View.VISIBLE
                 ll!!.search_bar.lastSuggestions = ll!!.last_suggest
-                ll!!.search_bar.setHint("Entrer le type")
+                ll!!.search_bar.setHint("Entrer Type")
             }
             R.id.rech_wilaya ->{
                 Annonces.type_recherche=3
@@ -189,7 +189,7 @@ private val showDetail = object : BroadcastReceiver(){
 
                 ll!!.search_bar.visibility = View.VISIBLE
                 ll!!.search_bar.lastSuggestions = ll!!.last_suggest
-                ll!!.search_bar.setHint("Entrer la wilaya")
+                ll!!.search_bar.setHint("Entrer Wilaya")
             }
 
         }

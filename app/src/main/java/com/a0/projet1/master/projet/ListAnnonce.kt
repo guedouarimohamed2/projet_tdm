@@ -40,13 +40,7 @@ class ListAnnonce : Fragment() {
 
     internal  lateinit var search_bar: MaterialSearchBar
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -62,7 +56,7 @@ class ListAnnonce : Fragment() {
 
         //Step Search bar
         search_bar = itemView.findViewById(R.id.search_bar) as MaterialSearchBar
-        search_bar.setHint("Enter  le nom")
+        search_bar.setHint("Enter Nom")
         search_bar.setCardViewElevation(10)
 
         search_bar.addTextChangeListener(object: TextWatcher {
@@ -146,38 +140,5 @@ class ListAnnonce : Fragment() {
             annonce_recyclerview.adapter = search_adapter
         }
 
-    }
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun onDetach() {
-        super.onDetach()
     }
 }

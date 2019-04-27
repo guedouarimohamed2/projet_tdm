@@ -74,10 +74,10 @@ class AnnonceDetaille : Fragment() {
     private fun setDetailAnnonce(annonce: Annonce?) {
         annonce_nom.text ="Nom : "+ annonce!!.nom
         annonce_type.text = "Type : "+ annonce!!.type
-        annonce_wilaya.text ="wialya : "+ annonce!!.wilaya
+        annonce_wilaya.text ="Wilaya : "+ annonce!!.wilaya
         annonce_description.text = annonce!!.description
-        annonce_telephone.text ="telephone : "+ annonce!!.telephone
-        annonce_email.text ="email : "+ annonce!!.email
+        annonce_telephone.text ="Telephone : "+ annonce!!.telephone
+        annonce_email.text ="E-mail : "+ annonce!!.email
 
     }
 }
