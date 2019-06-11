@@ -1,26 +1,31 @@
 package com.a0.projet1.master.projet
 
 
+
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import com.a0.projet1.master.projet.Model.Annonce
 import com.a0.projet1.master.projet.Model.Annonces
-import com.a0.projet1.master.projet.adapter.AnnonceListAdapter
 import com.a0.projet1.master.projet.adapter.SectionsPagerAdapter
-import kotlinx.android.synthetic.main.fragment_annonce_detaille.view.*
-import kotlinx.android.synthetic.main.fragment_list_annonce.view.*
-import android.app.FragmentManager
+import android.content.Intent
+import android.net.Uri
 import android.support.v4.view.ViewPager
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import android.widget.Button
+import com.a0.projet1.master.projet.R.id.map
 
 /**
  * A simple [Fragment] subclass.
@@ -35,6 +40,9 @@ class AnnonceDetaille : Fragment() {
     internal  lateinit var annonce_telephone: TextView
     internal  lateinit var annonce_email: TextView
 
+    lateinit var mapFragment : SupportMapFragment
+    lateinit var googleMap: GoogleMap
+
     internal  lateinit var v_p: ViewPager
 
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
@@ -48,6 +56,7 @@ class AnnonceDetaille : Fragment() {
         }
     }
 
+    @SuppressLint("MissingPermission")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -68,6 +77,33 @@ class AnnonceDetaille : Fragment() {
         // Set up the ViewPager with the sections adapter.
         //  fragment.
         setDetailAnnonce(annonce)
+
+        var Appel = itemView.findViewById(R.id.Appel) as Button
+        Appel.setOnClickListener {
+            val phone = annonce!!.telephone
+            val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null))
+            startActivity(intent)
+        }
+
+        mapFragment = map as SupportMapFragment
+        mapFragment.getMapAsync(OnMapReadyCallback {
+            googleMap = it
+            googleMap.isMyLocationEnabled = true
+            val location1 = LatLng(13.03,77.60)
+            googleMap.addMarker(MarkerOptions().position(location1).title("My Location"))
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location1,5f))
+
+            val location2 = LatLng(9.89,78.11)
+            googleMap.addMarker(MarkerOptions().position(location2).title("Madurai"))
+
+
+            val location3 = LatLng(13.00,77.00)
+            googleMap.addMarker(MarkerOptions().position(location3).title("Bangalore"))
+
+        })
+
+
+
         return itemView
     }
 
@@ -78,6 +114,5 @@ class AnnonceDetaille : Fragment() {
         annonce_description.text = annonce!!.description
         annonce_telephone.text ="Telephone : "+ annonce!!.telephone
         annonce_email.text ="E-mail : "+ annonce!!.email
-
     }
 }

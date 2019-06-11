@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:background="#f7f1e3"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:padding="10dp" />
 
         <TextView
@@ -114,9 +114,16 @@
             android:layout_height="wrap_content"
             android:background="#f7f1e3"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:padding="10dp" />
 
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
 
         <Button
 

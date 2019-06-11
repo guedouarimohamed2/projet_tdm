@@ -52,4 +52,5 @@ dependencies {
     implementation 'com.robertlevonyan.view:MaterialChipView:1.2.4'
 
     implementation 'com.github.mancj:MaterialSearchBar:0.8'
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
 }

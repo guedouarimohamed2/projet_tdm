@@ -98,11 +98,24 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
+                <Button
+                    android:id="@+id/Appel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Appeler" />
+
                 <android.support.v4.view.ViewPager
                     android:id="@+id/container"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     />
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
             </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
