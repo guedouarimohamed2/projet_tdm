@@ -1,17 +1,11 @@
 package com.a0.projet1.master.projet
 
 
-
+import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -25,12 +19,18 @@ import android.content.Intent
 import android.net.Uri
 import android.support.v4.view.ViewPager
 import android.widget.Button
+import com.google.android.gms.maps.MapView
+import android.content.pm.PackageManager
+import android.support.v4.app.ActivityCompat
+import kotlinx.android.synthetic.main.fragment_annonce_detaille.*
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.CameraUpdateFactory
 
-/**
- * A simple [Fragment] subclass.
- *
- */
-class AnnonceDetaille : Fragment() {
+
+class AnnonceDetaille : Fragment(), OnMapReadyCallback {
+
+    val MAPVIEW_BUNDLE_KEY = "MapViewBundleKey"
 
     internal  lateinit var annonce_wilaya: TextView
     internal  lateinit var annonce_type: TextView
@@ -40,6 +40,8 @@ class AnnonceDetaille : Fragment() {
     internal  lateinit var annonce_email: TextView
 
     internal  lateinit var v_p: ViewPager
+
+    internal lateinit var mMapView: MapView
 
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
     companion object {
@@ -70,9 +72,8 @@ class AnnonceDetaille : Fragment() {
 
         mSectionsPagerAdapter = SectionsPagerAdapter(childFragmentManager, annonce!!)
         v_p.adapter = mSectionsPagerAdapter
-        // Set up the ViewPager with the sections adapter.
-        //  fragment.
         setDetailAnnonce(annonce)
+
 
         var Appel = itemView.findViewById(R.id.Appel) as Button
         Appel.setOnClickListener {
@@ -81,7 +82,81 @@ class AnnonceDetaille : Fragment() {
             startActivity(intent)
         }
 
+        mMapView = itemView.findViewById(R.id.map)
+        initGoogleMap(savedInstanceState)
+
         return itemView
+    }
+
+
+    private fun initGoogleMap(savedInstanceState: Bundle?) {
+        // *** IMPORTANT ***
+        // MapView requires that the Bundle you pass contain _ONLY_ MapView SDK
+        // objects or sub-Bundles.
+        var mapViewBundle: Bundle? = null
+        if (savedInstanceState != null) {
+            mapViewBundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY)
+        }
+
+        mMapView.onCreate(mapViewBundle)
+
+        mMapView.getMapAsync(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mMapView.onResume()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mMapView.onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mMapView.onStop()
+    }
+
+
+    override fun onMapReady(map: GoogleMap) {
+
+        // Add a marker in Sydney, Australia,
+        // and move the map's camera to the same location.
+        val alger = LatLng(36.7525, 3.04197)
+
+        map.addMarker(MarkerOptions().position(alger)
+                .title("Marker in Algiers"))
+
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(alger, 12.0f))
+
+
+        if (ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
+
+    }
+
+    override fun onPause() {
+        mMapView.onPause()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        mMapView.onDestroy()
+        super.onDestroy()
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        mMapView.onLowMemory()
     }
 
     private fun setDetailAnnonce(annonce: Annonce?) {

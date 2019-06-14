@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -13,6 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBvlKnwLoShR2xNNUdhdjPzZQs1Z_p5XLQ" />
+
         <activity android:name=".MainActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -25,11 +32,6 @@
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme"></activity>
-<!--
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDXFulvWrT9AEGXfJtUKx2SHKG-0JCAf7Q"/>
-            -->
     </application>
 
 
