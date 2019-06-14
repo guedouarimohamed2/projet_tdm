@@ -10,4 +10,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="todo">TODO</string>
+    <string name="photos">Photos :</string>
+    <string name="description">Description :</string>
+    <string name="localisation">Localisation :</string>
 </resources>

@@ -22,7 +22,6 @@ import android.widget.Button
 import com.google.android.gms.maps.MapView
 import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
-import kotlinx.android.synthetic.main.fragment_annonce_detaille.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -88,11 +87,16 @@ class AnnonceDetaille : Fragment(), OnMapReadyCallback {
         return itemView
     }
 
+    private fun setDetailAnnonce(annonce: Annonce?) {
+        annonce_nom.text = "Nom : " + annonce!!.nom
+        annonce_type.text = "Type : " + annonce.type
+        annonce_wilaya.text = "Wilaya : " + annonce.wilaya
+        annonce_description.text = annonce.description
+        annonce_telephone.text = "Telephone : " + annonce.telephone
+        annonce_email.text = "E-mail : " + annonce.email
+    }
 
     private fun initGoogleMap(savedInstanceState: Bundle?) {
-        // *** IMPORTANT ***
-        // MapView requires that the Bundle you pass contain _ONLY_ MapView SDK
-        // objects or sub-Bundles.
         var mapViewBundle: Bundle? = null
         if (savedInstanceState != null) {
             mapViewBundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY)
@@ -132,7 +136,6 @@ class AnnonceDetaille : Fragment(), OnMapReadyCallback {
 
 
         if (ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
             //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
@@ -159,12 +162,5 @@ class AnnonceDetaille : Fragment(), OnMapReadyCallback {
         mMapView.onLowMemory()
     }
 
-    private fun setDetailAnnonce(annonce: Annonce?) {
-        annonce_nom.text ="Nom : "+ annonce!!.nom
-        annonce_type.text = "Type : "+ annonce!!.type
-        annonce_wilaya.text ="Wilaya : "+ annonce!!.wilaya
-        annonce_description.text = annonce!!.description
-        annonce_telephone.text ="Telephone : "+ annonce!!.telephone
-        annonce_email.text ="E-mail : "+ annonce!!.email
-    }
+
 }
