@@ -25,7 +25,6 @@ import android.content.Intent
 import android.net.Uri
 import android.support.v4.view.ViewPager
 import android.widget.Button
-import com.a0.projet1.master.projet.R.id.map
 
 /**
  * A simple [Fragment] subclass.
@@ -39,9 +38,6 @@ class AnnonceDetaille : Fragment() {
     internal  lateinit var annonce_description: TextView
     internal  lateinit var annonce_telephone: TextView
     internal  lateinit var annonce_email: TextView
-
-    lateinit var mapFragment : SupportMapFragment
-    lateinit var googleMap: GoogleMap
 
     internal  lateinit var v_p: ViewPager
 
@@ -84,25 +80,6 @@ class AnnonceDetaille : Fragment() {
             val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null))
             startActivity(intent)
         }
-
-        mapFragment = map as SupportMapFragment
-        mapFragment.getMapAsync(OnMapReadyCallback {
-            googleMap = it
-            googleMap.isMyLocationEnabled = true
-            val location1 = LatLng(13.03,77.60)
-            googleMap.addMarker(MarkerOptions().position(location1).title("My Location"))
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location1,5f))
-
-            val location2 = LatLng(9.89,78.11)
-            googleMap.addMarker(MarkerOptions().position(location2).title("Madurai"))
-
-
-            val location3 = LatLng(13.00,77.00)
-            googleMap.addMarker(MarkerOptions().position(location3).title("Bangalore"))
-
-        })
-
-
 
         return itemView
     }

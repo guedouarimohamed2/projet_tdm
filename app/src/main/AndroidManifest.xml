@@ -25,10 +25,11 @@
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme"></activity>
-
+<!--
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDXFulvWrT9AEGXfJtUKx2SHKG-0JCAf7Q"/>
+            -->
     </application>
 
 
