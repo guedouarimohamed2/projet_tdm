@@ -238,7 +238,6 @@ private val showDetail = object : BroadcastReceiver(){
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_PICK_PHOTO)
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -253,12 +252,10 @@ private val showDetail = object : BroadcastReceiver(){
                     for (i in 0 until clipData.itemCount) {
                         val uri = clipData.getItemAt(i).uri
                         images!!.add(uri)
-                        //   text_uri.text=text_uri.text.toString() + uri.toString()
                     }
                 } else { // handle single photo
                     val uri = data?.data
                     images!!.add(data?.data!!)
-                    //text_uri.text=text_uri.text.toString() + uri.toString()
                 }
             }
         }
@@ -266,19 +263,7 @@ private val showDetail = object : BroadcastReceiver(){
     fun choisir_image(view: View){
         pickimage()
     }
-    /*
-    private fun pickimage(){
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)//,MediaStore.Images.Media.INTERNAL_CONTENT_URI
-        //  intent.type = "image*"
-        startActivityForResult(intent,IMAGE_PICK_CODE)
 
-    }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
-            images!!.add(data?.data!!)
-
-        }
-    }*/
     companion object {
         private val IMAGE_PICK_CODE = 1000
         private val REQUEST_PICK_PHOTO = 1
