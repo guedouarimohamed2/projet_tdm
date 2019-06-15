@@ -32,7 +32,6 @@ import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.app_bar_main2.*
 import kotlinx.android.synthetic.main.fragment_ajouter_form.*
 import java.util.ArrayList
-
 class Main2Activity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 private val showDetail = object : BroadcastReceiver(){
@@ -232,12 +231,45 @@ private val showDetail = object : BroadcastReceiver(){
         ft.addToBackStack(null)
         ft.commit()
     }
+    private fun pickimage(){
+        images!!.clear()
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_PICK_PHOTO)
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_PICK_PHOTO) {
+            if (resultCode == RESULT_OK) {
+                if (data == null) {
+                    // something is wrong
+                }
+
+                val clipData = data!!.clipData
+                if (clipData != null) { // handle multiple photo
+                    for (i in 0 until clipData.itemCount) {
+                        val uri = clipData.getItemAt(i).uri
+                        images!!.add(uri)
+                        //   text_uri.text=text_uri.text.toString() + uri.toString()
+                    }
+                } else { // handle single photo
+                    val uri = data?.data
+                    images!!.add(data?.data!!)
+                    //text_uri.text=text_uri.text.toString() + uri.toString()
+                }
+            }
+        }
+    }
     fun choisir_image(view: View){
         pickimage()
     }
+    /*
     private fun pickimage(){
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)//,MediaStore.Images.Media.INTERNAL_CONTENT_URI
-        //  intent.type = "image/*"
+        //  intent.type = "image*"
         startActivityForResult(intent,IMAGE_PICK_CODE)
 
     }
@@ -246,9 +278,10 @@ private val showDetail = object : BroadcastReceiver(){
             images!!.add(data?.data!!)
 
         }
-    }
+    }*/
     companion object {
         private val IMAGE_PICK_CODE = 1000
+        private val REQUEST_PICK_PHOTO = 1
     }
     fun ajouter(view: View){
         val nom: EditText =findViewById(R.id.input_nom)
